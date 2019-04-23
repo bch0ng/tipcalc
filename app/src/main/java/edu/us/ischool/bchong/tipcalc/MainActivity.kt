@@ -54,8 +54,6 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun afterTextChanged(s: Editable) {
-                tipButton.isEnabled = tipInput.text.isNotEmpty()
-
                 tipInput.removeTextChangedListener(this)
                 /*
                     Limits amount to two decimal places
@@ -79,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                     tipInput.setText("$" + tipInput.text)
                 }
                 tipInput.setSelection(tipInput.text.length)     // Places cursor at the end
+                tipButton.isEnabled = tipInput.text.isNotEmpty()
                 tipInput.addTextChangedListener(this)
             }
 
